@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark mode FIRST - Primary theme */
+  --background-primary: #0a0a0a;
+  --background-secondary: #141414;
+  --background-elevated: #1a1a1a;
+
+  --border-default: #2a2a2a;
+  --border-focus: #6366f1;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --gradient-primary-from: #6366f1;
+  --gradient-primary-to: #8b5cf6;
+  --gradient-accent-from: #8b5cf6;
+  --gradient-accent-to: #a855f7;
+
+  /* Animation timing */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background-primary);
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  height: 100%;
+}
+
+/* Next.js root div */
+#__next {
+  min-height: 100vh;
+  background: var(--background-primary);
+}
+
+/* Ensure all main containers have dark background */
+main {
+  background: var(--background-primary);
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  transition: all var(--transition-fast) var(--easing);
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for dark mode - Modern & Subtle */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+  border-radius: 10px;
+  border: 2px solid var(--background-primary);
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.7) 0%, rgba(139, 92, 246, 0.7) 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient utilities */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--gradient-primary-from) 0%, var(--gradient-primary-to) 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--gradient-accent-from) 0%, var(--gradient-accent-to) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--gradient-primary-from) 0%, var(--gradient-primary-to) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Elevated card effect */
+  .elevated {
+    background: var(--background-elevated);
+    border: 1px solid var(--border-default);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Smooth hover lift effect */
+  .hover-lift {
+    transition: transform var(--transition-normal) var(--easing), box-shadow var(--transition-normal) var(--easing);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.4), 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+}
