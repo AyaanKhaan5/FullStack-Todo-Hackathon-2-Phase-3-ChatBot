@@ -1,4 +1,4 @@
-# Full-Stack Todo Web Application
+# Full-Stack Todo Web Application Hackathon 2 Phase 3 Chatbot Integration
 
 A modern, multi-user, authenticated full-stack web application for task management.
 
